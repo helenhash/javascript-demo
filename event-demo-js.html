@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+	
+	<form>
+		<input type="text" onkeydown="return noNumber(event)">
+	</form>
+	<script>
+		function noNumber(e) {
+			var keyNum;
+			var keyChar;
+			var numCheck = /\d/; // Regular expersion
+			if (window.event) {
+				keyNum = e.keyCode; //IE
+			} else if (e.which) {
+				keyNum = e.which;
+			}
+			keyChar = String.fromCharCode(keyNum);
+			return !numCheck.test(keyChar);
+		}
+	</script>
+</body>

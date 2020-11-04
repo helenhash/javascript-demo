@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Demo Clock</title>
+	<style>
+		body {
+			background: url("images/clock-background.jpg") no-repeat;
+			background-size: 100%;
+		}
+		.clock {
+			display: flex;
+			width: 30%;
+			margin: 20% auto;
+		}
+		.clock div {
+			width: 30%;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			font-size: 50px;
+			font-weight: bold;
+			text-align: center;
+			border: 2px solid green;
+			background: #fff;
+			border-radius: 5px;
+			margin-left: 10px;
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="clock">
+		<div id="hour">20
+		</div>
+		<div id="min">20
+		</div>
+		<div id="second">20
+		</div>
+	</div>
+	<script>
+		function runClock() {
+			var currentTime = new Date();
+			var hour = currentTime.getHours();
+			var min = currentTime.getMinutes();
+			var second = currentTime.getSeconds();		
+			document.getElementById("hour").innerHTML = checkTime(hour);
+			document.getElementById("min").innerHTML = checkTime(min);
+			document.getElementById("second").innerHTML = checkTime(second);
+		}
+		runClock();
+		var timer = setInterval(runClock, 1000);
+		function checkTime(i) {
+		  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+		  return i;
+		}
+	</script>
+</body>
